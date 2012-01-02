@@ -26,7 +26,7 @@ set showmode
 "Use incremental search.
 set incsearch
 
-"Turn syntax highlighting on.
+"Turn on syntax highlighting.
 syntax on
 
 "Highlight last search matches.
