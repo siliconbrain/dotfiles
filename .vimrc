@@ -66,3 +66,10 @@ set wildmenu
 
 "Use this color scheme.
 colorscheme native
+
+"clang complete options:
+let g:clang_auto_select=2 "Automatically select the first entry in the popup menu, and insert it into the code.
+let g:clang_complete_auto=1 "Automatically complete after ->, ., ::
+"Doesn't work for some reason: let g:clang_use_library=1 "Use libclang instead of clang/clang++. See :h clang_complete-use_library for more info.
+let g:clang_complete_macros=1 "If clang should complete preprocessor macros and constants.
+let g:clang_complete_patterns=1 "If clang should complete code patterns, i.e loop constructs etc.
