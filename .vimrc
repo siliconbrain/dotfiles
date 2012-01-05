@@ -73,3 +73,4 @@ let g:clang_complete_auto=1 "Automatically complete after ->, ., ::
 "Doesn't work for some reason: let g:clang_use_library=1 "Use libclang instead of clang/clang++. See :h clang_complete-use_library for more info.
 let g:clang_complete_macros=1 "If clang should complete preprocessor macros and constants.
 let g:clang_complete_patterns=1 "If clang should complete code patterns, i.e loop constructs etc.
+let g:clang_user_options='|| exit 0' "This overcomes the problem of not finding any matches when there are parts of the code (or includes) that clang can't compile.
