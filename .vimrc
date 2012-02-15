@@ -65,7 +65,19 @@ set noexpandtab	"Don't expand tabs to spaces.
 set wildmenu
 
 "Use this color scheme.
-colorscheme native
+if filereadable($HOME."/.vim/colors/gentooish.vim")
+	colorscheme gentooish
+elseif filereadable($HOME."/.vim/colors/native.vim")
+	colorscheme native
+else
+	colorscheme default
+endif
+
+"Use pathogen.
+if filereadable($HOME."/.vim/bundle/vim-pathogen/autoload/pathogen.vim")
+	runtime bundle/vim-pathogen/autoload/pathogen.vim
+	call pathogen#infect()
+endif
 
 "clang complete options:
 let g:clang_auto_select=2 "Automatically select the first entry in the popup menu, and insert it into the code.
