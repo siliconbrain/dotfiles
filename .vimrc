@@ -64,6 +64,9 @@ set noexpandtab	"Don't expand tabs to spaces.
 "Show list of matches for command-line completion.
 set wildmenu
 
+"Disable preview scratch window.
+set completeopt=menu
+
 "Use this color scheme.
 if filereadable($HOME."/.vim/colors/gentooish.vim")
 	colorscheme gentooish
