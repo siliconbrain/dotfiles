@@ -43,5 +43,12 @@ PS2="%{$fg[red]%}%_> %{$reset_color%}"
 # | personal aliases
 alias ls="ls --color=auto"
 alias cd..="cd .."
-export PATH=$PATH":/opt/bin"
+# | add directories to PATH
+for dir in "/opt/bin" "$HOME/.cabal/bin"
+do
+	if [ -d "$dir" ] && [ ! -L "$dir" ]; then
+		PATH="$PATH:$dir"
+	fi
+done
+export PATH
 # END OF Personal config
