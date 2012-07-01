@@ -58,8 +58,8 @@ set visualbell
 "Set indenting length to 4.
 set tabstop=4
 set shiftwidth=4
-set softtabstop=0	"Don't use mixed space-tab editing mode.
-set noexpandtab	"Don't expand tabs to spaces.
+set softtabstop=0    "Don't use mixed space-tab editing mode.
+set expandtab        "Expand tabs to spaces.
 
 "Show list of matches for command-line completion.
 set wildmenu
@@ -67,19 +67,24 @@ set wildmenu
 "Disable preview scratch window.
 set completeopt=menu
 
+"Enable 256 colors in GNOME Terminal.
+if $COLORTERM == "gnome-terminal"
+    set t_Co=256
+endif
+
 "Use this color scheme.
 if filereadable($HOME."/.vim/colors/gentooish.vim")
-	colorscheme gentooish
+    colorscheme gentooish
 elseif filereadable($HOME."/.vim/colors/native.vim")
-	colorscheme native
+    colorscheme native
 else
-	colorscheme default
+    colorscheme default
 endif
 
 "Use pathogen.
 if filereadable($HOME."/.vim/bundle/vim-pathogen/autoload/pathogen.vim")
-	runtime bundle/vim-pathogen/autoload/pathogen.vim
-	call pathogen#infect()
+    runtime bundle/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect()
 endif
 
 "clang complete options:
@@ -89,3 +94,13 @@ let g:clang_complete_auto=1 "Automatically complete after ->, ., ::
 let g:clang_complete_macros=1 "If clang should complete preprocessor macros and constants.
 let g:clang_complete_patterns=1 "If clang should complete code patterns, i.e loop constructs etc.
 let g:clang_user_options='|| exit 0' "This overcomes the problem of not finding any matches when there are parts of the code (or includes) that clang can't compile.
+
+"haskellmode-vim config:
+if isdirectory($HOME."/.vim/bundle/haskellmode-vim")
+    au BufEnter *.hs,*.lhs compiler ghc
+
+    let g:haddock_browser = "/usr/bin/x-www-browser"
+    let g:ghc = "/usr/bin/ghc"
+    let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
+    let g:haddock_indexfiledir = $HOME."/.vim/"
+endif
