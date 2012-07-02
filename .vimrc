@@ -100,6 +100,7 @@ if isdirectory($HOME."/.vim/bundle/haskellmode-vim")
     au BufEnter *.hs,*.lhs compiler ghc
 
     let g:haddock_browser = "/usr/bin/x-www-browser"
+    let g:haddock_browser_callformat = "%s \"%s\" &>/dev/null &"
     let g:ghc = "/usr/bin/ghc"
     let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
     let g:haddock_indexfiledir = $HOME."/.vim/"
